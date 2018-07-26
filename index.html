@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Test</title>
+            <script src="http://cdn.jsdelivr.net/alasql/latest/alasql.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
+
+            <script>
+                var data = [{city:"Minsk",population:100000}, {city:"Riga",population:200000}];
+
+                window.exportData = function () {
+                        alasql("SELECT * INTO XLSX('cities.xlsx',{headers:true}) FROM ? ",[data]);
+                    }
+           </script>
+    </head>
+    <body>
+            <button onclick="window.exportData()">Export data to Excel</button>
+    </body>
+</html>
